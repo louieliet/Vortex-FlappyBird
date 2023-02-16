@@ -7,7 +7,8 @@ public class BirdScript : MonoBehaviour
     public Rigidbody2D myRigidbody;
     public float flapStrength;
     public bool birdIsAlive = true;
- 
+    public LogicScript logic;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +27,8 @@ public class BirdScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         birdIsAlive = false;
+        logic.gameOver();
     }
+
+
 }
