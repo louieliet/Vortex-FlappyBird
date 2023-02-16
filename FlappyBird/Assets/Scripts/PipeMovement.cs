@@ -4,15 +4,14 @@ using UnityEngine;
  
 public class PipeMovement : MonoBehaviour
 {
-    public float speed = 5.0f;
-    public float moveSpeed = 5;
-    public float deadZone = -10;
+    public float speed;
+    public float deadZone;
 
     void Update()
     {
-        transform.position += new Vector3(-1,0,0) * Time.deltaTime;
+        transform.position += new Vector3(-1,0,0) * Time.deltaTime * speed;
 
-        if(transform.position.x < -8){
+        if(transform.position.x < deadZone){
             Destroy(gameObject);
         }
 

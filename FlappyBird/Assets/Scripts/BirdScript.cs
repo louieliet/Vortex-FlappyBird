@@ -13,12 +13,13 @@ public class BirdScript : MonoBehaviour
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
+        logic = GameObject.Find("GameManager").GetComponent<LogicScript>();
     }
  
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && birdIsAlive)
+        if (Input.GetKeyDown(KeyCode.Space) && logic.isDead == false)
         {
             myRigidbody.velocity = Vector2.up * flapStrength;
         }
@@ -27,7 +28,7 @@ public class BirdScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         birdIsAlive = false;
-        logic.gameOver();
+        logic.Die();
     }
 
 
