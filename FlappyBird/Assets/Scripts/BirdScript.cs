@@ -19,16 +19,18 @@ public class BirdScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && logic.isDead == false)
+        if (Input.GetKeyDown(KeyCode.Space) && birdIsAlive)
         {
             myRigidbody.velocity = Vector2.up * flapStrength;
         }
     }
  
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        birdIsAlive = false;
-        logic.Die();
+        if(collision.gameObject.layer == 6){
+            birdIsAlive = false;
+            logic.Die();
+        }
     }
 
 

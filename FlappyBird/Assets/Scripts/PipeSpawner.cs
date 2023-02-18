@@ -7,7 +7,7 @@ public class PipeSpawner : MonoBehaviour
     public GameObject pipePrefab;
     public float spawnRate = 1f;
     private float timer = 0f;
-    public float heightOffset = 10;
+    public float difference = 2.0f; 
 
     private void Start()
     {
@@ -28,9 +28,11 @@ public class PipeSpawner : MonoBehaviour
     }
 
     void spawnPipe(){
-
-        float lowestPoint = transform.position.y - heightOffset;
-        float highestPoint = transform.position.y + heightOffset;
-        Instantiate(pipePrefab, new Vector3(transform.position.x ,Random.Range(lowestPoint,highestPoint),0), pipePrefab.transform.rotation);
+        float topLimit = transform.position.y + difference ;
+        float bottomLimit = transform.position.y - difference;
+        float randomHeight = Random.Range(bottomLimit,topLimit);
+        Instantiate(pipePrefab, 
+            new Vector3(transform.position.x + 5.0f, randomHeight, 0), 
+            pipePrefab.transform.rotation);
     }
 }
