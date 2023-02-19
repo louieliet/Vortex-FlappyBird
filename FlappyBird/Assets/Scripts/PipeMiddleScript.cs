@@ -9,7 +9,7 @@ public class PipeMiddleScript : MonoBehaviour
 
     void Start()
     {
-        logic = GameObject.Find("GameManager").GetComponent<LogicScript>();
+        logic = GameObject.Find("LogicManager").GetComponent<LogicScript>();
     }
 
     private void OnTriggerExit2D(Collider2D other) {

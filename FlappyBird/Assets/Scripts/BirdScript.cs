@@ -13,7 +13,7 @@ public class BirdScript : MonoBehaviour
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
-        logic = GameObject.Find("GameManager").GetComponent<LogicScript>();
+        logic = GameObject.Find("LogicManager").GetComponent<LogicScript>();
     }
  
     // Update is called once per frame

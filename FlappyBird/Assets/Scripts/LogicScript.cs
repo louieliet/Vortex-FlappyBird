@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LogicScript : MonoBehaviour
 {
-    public int score = 0;   // Score
+    public int score;   // Score
     public bool isDead = false; // Is the player dead?
+    public Text scoreText;
 
     // Increase score
     public void AddScore(int amount)
     {
-        // Add amount to score
         score += amount; 
-        // Print score to console
-        Debug.Log("Score: " + score); 
+        scoreText.text = score.ToString();
     }
 
     // Change scene when dying
